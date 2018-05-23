@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
             var builder = AlertDialog.Builder(this)
             builder.setMessage("Wrong confirmation password").setNegativeButton("Retry", null).create().show()
         } else {
-            
+
         }
 
     }
