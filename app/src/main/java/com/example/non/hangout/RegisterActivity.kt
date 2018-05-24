@@ -12,7 +12,7 @@ import org.json.JSONObject
 
 class RegisterActivity : AppCompatActivity() {
 
-    private val REQUEST_URL : String = ""
+    private val REQUEST_URL : String = "https://nonpu.000webhostapp.com/Register.php"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +48,9 @@ class RegisterActivity : AppCompatActivity() {
             var registerRequest = RegisterRequest(REQUEST_URL,username,password,listener)
             var requestQueue = Volley.newRequestQueue(this)
             requestQueue.add(registerRequest)
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
     }

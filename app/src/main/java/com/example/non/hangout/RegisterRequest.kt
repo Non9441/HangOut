@@ -11,7 +11,9 @@ class RegisterRequest : StringRequest {
 
     constructor(url:String,username:String, password:String, listener:Response.Listener<String>) :
             super(Request.Method.POST,url,listener,null){
-        params = hashMapOf("username" to username, "password" to password)
+        params = HashMap()
+        params.put("username", username)
+        params.put("password", password)
     }
 
 

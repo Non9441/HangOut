@@ -13,7 +13,7 @@ import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
 
-    private val REQUEST_URL : String = ""
+    private val REQUEST_URL : String = "https://nonpu.000webhostapp.com/Login.php"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +21,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onLoginClicked(view: View) {
-        val username = username.text.toString()
-        val password = password.text.toString()
+        val uname = username.text.toString()
+        val pword = password.text.toString()
 
         var listener = Listener<String> {
             @Override
@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        var loginRequest = LoginRequest(REQUEST_URL,username,password,listener)
+        var loginRequest = LoginRequest(REQUEST_URL,uname,pword,listener)
         var requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(loginRequest)
     }
