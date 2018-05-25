@@ -54,14 +54,14 @@ class CreateActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMapCl
 
     fun onCreateClicked(view: View) {
         var name = actName.text.toString()
-        var descrp = describe.text.toString()
+        var descrb = describe.text.toString()
 
         var sp = getSharedPreferences(sharedName, Context.MODE_PRIVATE)
         var editor = sp.edit()
 
         var counter = sp.getInt("counter",-1)
         editor.putString("name"+(counter+1),name)
-        editor.putString("descrp"+(counter+1),descrp)
+        editor.putString("descrb"+(counter+1),descrb)
         editor.putFloat("lat"+(counter+1),latitude)
         editor.putFloat("long"+(counter+1),longitude)
         editor.putInt("counter",counter+1)

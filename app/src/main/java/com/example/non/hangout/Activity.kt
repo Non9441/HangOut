@@ -1,7 +1,7 @@
 package com.example.non.hangout
 
 class Activity( val name: String,
-                val descrp: String,
+                val descrb: String,
                 val lat: Float,
                 val long: Float) {
 
