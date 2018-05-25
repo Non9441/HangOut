@@ -1,5 +1,8 @@
 package com.example.non.hangout
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
@@ -53,7 +56,19 @@ class CreateActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMapCl
         var name = actName.text.toString()
         var descrp = describe.text.toString()
 
-        actName.setText(""+latitude+" ,"+longitude)
+        var sp = getSharedPreferences(sharedName, Context.MODE_PRIVATE)
+        var editor = sp.edit()
+
+        var counter = sp.getInt("counter",-1)
+        editor.putInt("counter",counter+1)
+        editor.putString("name"+counter+1,name)
+        editor.putString("descrp"+counter+1,descrp)
+        editor.putFloat("lat"+counter+1,latitude)
+        editor.putFloat("long"+counter+1,longitude)
+
+        var intent = Intent(this, MainActivity::class.java)
+
+        startActivity(intent)
 
     }
 

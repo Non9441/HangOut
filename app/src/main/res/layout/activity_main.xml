@@ -23,4 +23,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/actList"></ListView>
 
+    <Button
+        android:id="@+id/clear"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="clear"
+        android:textStyle="bold"
+        android:onClick="onClearClicked"/>
+
 </LinearLayout>
