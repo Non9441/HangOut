@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/addAct"
+        style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textAlignment="center"
-        android:id="@+id/username"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="add new activity"
+        android:textStyle="bold"
+        android:onClick="onAddClicked"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/actList"></ListView>
 
 </LinearLayout>

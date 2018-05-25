@@ -6,43 +6,37 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".RegisterActivity">
+    tools:context=".CreateActivity">
 
     <EditText
-        android:id="@+id/regusername"
+        android:id="@+id/actName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:inputType="textEmailAddress"
+        android:hint="Activity name"
         android:maxLines="1"
         android:singleLine="true"/>
 
-    <EditText
-        android:id="@+id/regpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:singleLine="true"/>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        tools:context=".CreateActivity"/>
 
     <EditText
-        android:id="@+id/conpassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Confirm password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:singleLine="true"/>
+        android:layout_height="60dp"
+        android:id="@+id/describe"/>
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/createAct"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="register"
+        android:text="create"
         android:textStyle="bold"
-        android:onClick="onRegisClicked"/>
+        android:onClick="onCreateClicked"/>
 
 </LinearLayout>
