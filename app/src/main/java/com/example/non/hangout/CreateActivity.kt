@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.activity_create.*
 class CreateActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     lateinit var mMap : GoogleMap
-    private var latitude = 0.toFloat()
-    private var longitude = 0.toFloat()
+    private var latitude = 15.8700.toFloat()
+    private var longitude = 100.9925.toFloat()
     final val sharedName = "HangOut_PREF"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class CreateActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMapCl
         mMap = googleMap!!
         // Add a marker in Sydney and move the camera
         val thai = LatLng(15.8700, 100.9925)
-        mMap.addMarker(MarkerOptions().position(thai).title("Marker in Sydney"))
+        mMap.addMarker(MarkerOptions().position(thai).title("Marker in Thai"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(thai))
         mMap.setOnMapClickListener(this)
     }
@@ -60,11 +60,13 @@ class CreateActivity : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMapCl
         var editor = sp.edit()
 
         var counter = sp.getInt("counter",-1)
+        editor.putString("name"+(counter+1),name)
+        editor.putString("descrp"+(counter+1),descrp)
+        editor.putFloat("lat"+(counter+1),latitude)
+        editor.putFloat("long"+(counter+1),longitude)
         editor.putInt("counter",counter+1)
-        editor.putString("name"+counter+1,name)
-        editor.putString("descrp"+counter+1,descrp)
-        editor.putFloat("lat"+counter+1,latitude)
-        editor.putFloat("long"+counter+1,longitude)
+
+        editor.commit()
 
         var intent = Intent(this, MainActivity::class.java)
 

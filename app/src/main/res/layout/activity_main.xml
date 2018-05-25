@@ -8,6 +8,16 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
+    <TextView
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/head"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:text="Activity list"/>
+
     <Button
         android:id="@+id/addAct"
         style="?android:textAppearanceSmall"

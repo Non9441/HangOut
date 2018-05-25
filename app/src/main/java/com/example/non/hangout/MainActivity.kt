@@ -24,7 +24,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         sp = getSharedPreferences(sharedName, Context.MODE_PRIVATE)
         editor = sp.edit()
-        if(sp.getInt("counter",-1) == -1) editor.putInt("counter",0)
+
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, activities)
+        actList.adapter = adapter
+
+        if(sp.getInt("counter",-1) == -1) editor.putInt("counter",0); editor.commit()
         loadActivities()
     }
 
@@ -33,16 +37,19 @@ class MainActivity : AppCompatActivity() {
             var counter = sp.getInt("counter",-1)
 
             for(i in 1..counter) {
-                var name = sp.getString("name"+i,null)
-                var descrp = sp.getString("descrp"+i,null)
-                var lat = sp.getFloat("lat"+i,-1.toFloat())
-                var long = sp.getFloat("long"+i,-1.toFloat())
+                var name = sp.getString("name"+i.toString(),null)
+                var descrp = sp.getString("descrp"+i.toString(),null)
+                var lat = sp.getFloat("lat"+i.toString(),-1.toFloat())
+                var long = sp.getFloat("long"+i.toString(),-1.toFloat())
                 activities.add(Activity(name, descrp, lat, long))
             }
-
-            adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, activities)
-            actList.adapter = adapter
         }
+        adapter.notifyDataSetChanged()
+    }
+
+    fun clearSP() {
+        editor.clear()
+        editor.commit()
     }
 
     fun onAddClicked(view: View) {
@@ -51,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClearClicked(view: View) {
+        clearSP()
         editor.putInt("counter",0)
         activities.clear()
         loadActivities()
